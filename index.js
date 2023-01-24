@@ -31,6 +31,37 @@ app.get('/categories/:categoryId/products/:productId', (req, res) => {
   });
 });
 
+// TODO: Reto
+app.get('/categories/:categoryId', (req, res) => {
+  const { categoryId } = req.params;
+  res.json({
+    categoryId,
+    category: 'Computers & Accesories',
+  });
+});
+
+app.get('/people', (req, res) => {
+  res.json([
+    {
+      name: 'Arturo',
+      type: 'employee',
+    },
+    {
+      name: 'Jimena',
+      type: 'customer',
+    },
+  ]);
+});
+
+app.get('/people/:id', (req, res) => {
+  const { id } = req.params;
+  res.json({
+    id,
+    name: 'Arturo',
+    type: 'employee',
+  });
+});
+
 app.listen(port, () => {
   console.log(`my port ${port}`);
 });
