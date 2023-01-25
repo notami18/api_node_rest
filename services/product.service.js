@@ -37,6 +37,7 @@ class ProductSerrvice {
   }
 
   async findOne(id) {
+    const name = this.getToatl();
     return this.products.find((item) => item.id === id);
   }
 
