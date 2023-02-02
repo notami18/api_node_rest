@@ -11,7 +11,7 @@ const {
 } = require('./middlewares/error.handler');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 
 app.use(express.json());
 
@@ -27,13 +27,13 @@ const options = {
 };
 app.use(cors(options));
 
-app.get('/', (req, res) => {
-  res.send('Hola mi server en express');
-});
+// app.get('/', (req, res) => {
+//   res.send('Hola mi server en express');
+// });
 
-app.get('/nueva-ruta', (req, res) => {
-  res.send('Hola soy una nueva ruta');
-});
+// app.get('/nueva-ruta', (req, res) => {
+//   res.send('Hola soy una nueva ruta');
+// });
 
 routerApi(app);
 
@@ -43,6 +43,8 @@ app.use(errorHandler);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.listen(port, () => {
-  console.log(`my port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`my port ${port}`);
+// });
+
+module.exports = app.listen(port);
